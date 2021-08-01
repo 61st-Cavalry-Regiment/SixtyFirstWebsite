@@ -8,10 +8,10 @@ const loader = (src: string) => {
     return `https://${process.env.NEXT_PUBLIC_CDN}/${src}`
 }
 
-
 function MImage(props: any) {
     let src = loader(props.src)
     let { src: s, ...p } = props
+    // eslint-disable-next-line @next/next/no-img-element
     return <img src={src} {...p} />
 }
 

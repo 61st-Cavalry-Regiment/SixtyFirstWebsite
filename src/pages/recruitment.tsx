@@ -130,11 +130,11 @@ function Recruitment() {
             <div>
                 <h1 className="pb-5">Once your in our TS</h1>
                 <p>
-                    Join one of the "Recruitment Waiting room" channels under
-                    the recruitment section and wait for a recruiter to join the
-                    channel and begin your recruitment process. Please
-                    understand that recruiters are giving their free time to the
-                    unit so give them a chance to get to you!
+                    Join one of the &quot;Recruitment Waiting room&quot;
+                    channels under the recruitment section and wait for a
+                    recruiter to join the channel and begin your recruitment
+                    process. Please understand that recruiters are giving their
+                    free time to the unit so give them a chance to get to you!
                 </p>
             </div>
             <div className="flex space-x-4 justify-center">

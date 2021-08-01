@@ -4,6 +4,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface INav {
     name: string
@@ -103,9 +104,11 @@ export default function TopBar() {
                                                     <span className="sr-only">
                                                         Open user menu
                                                     </span>
-                                                    <img
+                                                    <Image
                                                         className="h-8 w-8 rounded-full"
                                                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                                        width={256}
+                                                        height={256}
                                                         alt=""
                                                     />
                                                 </Menu.Button>

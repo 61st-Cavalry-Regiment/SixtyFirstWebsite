@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import MImage from '../components/Image'
+import Script from 'next/script'
 
 const PHOTOS = [
     'unit-photos/img_1.jpg',
@@ -14,11 +15,11 @@ function UnitPhotos() {
         <div className="container text-center text-primary mt-12">
             <Head>
                 <link href="/bootstrap.css" rel="stylesheet" />
-                <script
+                <Script
                     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
                     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
                     crossOrigin="anonymous"
-                ></script>
+                ></Script>
             </Head>
             <h1>Unit Photos</h1>
             <div
