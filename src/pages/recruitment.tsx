@@ -143,13 +143,23 @@ function Recruitment() {
                     style={{ width: '128px' }}
                     className="p-3 inline-block"
                 >
-                    <Image src={TSIcon} loading="eager" unoptimized={true} />
+                    <Image
+                        src={TSIcon}
+                        loading="eager"
+                        unoptimized={true}
+                        alt="Teamspeak icon"
+                    />
                 </a>
                 <a
                     href="https://discord.gg/R6mG2JKNxt"
                     className="p-3 inline-block my-auto"
                 >
-                    <Image src={DiscordIcon} width={128} height={128} />
+                    <Image
+                        src={DiscordIcon}
+                        width={128}
+                        height={128}
+                        alt="Discord icon"
+                    />
                 </a>
             </div>
         </div>
