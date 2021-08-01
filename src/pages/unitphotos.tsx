@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import MImage from '../components/Image'
+import MImage, { MImage as Mi } from '../components/Image'
 import Script from 'next/script'
 
 const PHOTOS = [
@@ -34,6 +34,8 @@ function UnitPhotos() {
                             src={PHOTOS[0]}
                             className="block w-full"
                             alt="..."
+                            width={2000}
+                            height={1128}
                         />
                     </div>
                     {PHOTOS.slice(1).map((photo) => (
@@ -42,6 +44,8 @@ function UnitPhotos() {
                                 src={photo}
                                 className="block w-full"
                                 alt="..."
+                                width={2000}
+                                height={1128}
                             />
                         </div>
                     ))}
