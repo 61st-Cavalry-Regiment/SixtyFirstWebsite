@@ -3,24 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "doppler run -- next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.6.5",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
-    "framer-motion": "^4",
+    "@headlessui/react": "^1.4.0",
+    "@heroicons/react": "^1.0.3",
+    "autoprefixer": "^10.3.1",
     "next": "11.0.1",
+    "postcss": "^8.3.6",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "tailwindcss": "^2.2.7"
   },
   "devDependencies": {
     "@types/react": "17.0.15",
+    "@typescript-eslint/parser": "^4.28.5",
     "eslint": "7.31.0",
     "eslint-config-next": "11.0.1",
+    "prettier": "^2.3.2",
+    "prettier-eslint": "^13.0.0",
     "typescript": "4.3.5"
   }
 }

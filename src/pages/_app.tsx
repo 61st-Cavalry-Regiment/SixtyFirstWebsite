@@ -1,10 +1,12 @@
-import '../styles/globals.css'
+import '../../styles/globals.css'
 import type { AppProps } from 'next/app'
-import { ChakraProvider } from "@chakra-ui/react";
+import TopBar from '../components/TopBar'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <ChakraProvider>
+  return (<div>
+    <TopBar></TopBar>
     <Component {...pageProps} />
-  </ChakraProvider>
+  </div>)
+
 }
 export default MyApp
