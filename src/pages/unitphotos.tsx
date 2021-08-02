@@ -1,6 +1,6 @@
 import Head from 'next/head'
-import MImage, { MImage as Mi } from '../components/Image'
-import Script from 'next/script'
+import { parseUrl } from '../components/Image'
+import Image from 'next/image'
 
 const PHOTOS = [
     'unit-photos/img_1.jpg',
@@ -30,8 +30,8 @@ function UnitPhotos() {
             >
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <MImage
-                            src={PHOTOS[0]}
+                        <Image
+                            src={parseUrl(PHOTOS[0])}
                             className="block w-full"
                             alt="..."
                             width={2000}
@@ -40,8 +40,8 @@ function UnitPhotos() {
                     </div>
                     {PHOTOS.slice(1).map((photo) => (
                         <div key={photo} className="carousel-item">
-                            <MImage
-                                src={photo}
+                            <Image
+                                src={parseUrl(photo)}
                                 className="block w-full"
                                 alt="..."
                                 width={2000}

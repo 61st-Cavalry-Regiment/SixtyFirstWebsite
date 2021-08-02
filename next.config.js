@@ -1,6 +1,6 @@
 module.exports = {
     reactStrictMode: true,
     images: {
-        domains: [process.env.CDN, 'images.unsplash.com'],
+        domains: [process.env.CDN, 'cdn.discordapp.com'],
     },
 }

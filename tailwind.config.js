@@ -21,6 +21,11 @@ module.exports = {
                     900: '#191919',
                     800: '#212121',
                 },
+                accent: {
+                    DEFAULT: '#fd4d4d',
+                    hover: '#fd6868',
+                    disabled: '#f5bfbf',
+                },
             },
             backgroundColor: (theme) => ({
                 primary: '#212121',

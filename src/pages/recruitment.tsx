@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import TSIcon from '../../public/ts_stacked_bluelight.png'
 import DiscordIcon from '../../public/Discord-Logo-Color.svg'
+import { parseUrl } from '../components/Image'
 
 function Recruitment() {
     return (
@@ -40,8 +41,35 @@ function Recruitment() {
                     additional support detachments to work hand-in-hand with the
                     main infantry element.{' '}
                 </p>
-                <div className="flex flex-col space-y-2 lg:mx-28 mx-12 lg:grid grid-cols-3 gap-4">
-                    <div>
+                <div className="grid lg:mx-28 mx-12 grid-cols-1 lg:grid-cols-3 grid-rows-3 lg:grid-rows-2 gap-4">
+                    <div className="hidden lg:block scale-150 my-auto">
+                        <Image
+                            src={parseUrl('inf.png')}
+                            width={206}
+                            height={106}
+                            className="mx-auto"
+                            alt="inf logo"
+                        />
+                    </div>
+                    <div className="hidden lg:block my-auto">
+                        <Image
+                            src={parseUrl('air.png')}
+                            width={416}
+                            height={240}
+                            className="mx-auto"
+                            alt="air logo"
+                        />
+                    </div>
+                    <div className="hidden lg:block my-auto scale-75">
+                        <Image
+                            src={parseUrl('med.png')}
+                            width={416}
+                            height={342}
+                            className="mx-auto"
+                            alt="med logo"
+                        />
+                    </div>
+                    <div className="lg:row-start-2">
                         <h3 className="py-3">Orion</h3>
                         <p>
                             Orion is our foundational Infantry detachment
@@ -51,7 +79,7 @@ function Recruitment() {
                             battlefield, look no further than Orion.
                         </p>
                     </div>
-                    <div>
+                    <div className="lg:row-start-2">
                         <h3 className="pb-3">Phoenix</h3>
                         <p>
                             Phoenix is our Army Aviation detachment. Their main
@@ -64,7 +92,7 @@ function Recruitment() {
                             threats on the ground and in air.
                         </p>
                     </div>
-                    <div>
+                    <div className="lg:row-start-2">
                         <h3 className="pb-3">Perseus</h3>
                         <p>
                             Perseus is our Army Medical Detachment. The main
@@ -117,7 +145,7 @@ function Recruitment() {
             </div>
             <div>
                 <h1 className="pb-5">Joining requirements</h1>
-                <ul className="list-disc">
+                <ul className="list-disc mx-auto list-inside text-left">
                     <li>16+ years old</li>
                     <li>20 hours in ARMA 3</li>
                     <li>Follow unit leadership decisions</li>

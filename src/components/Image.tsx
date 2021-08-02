@@ -11,6 +11,10 @@ const loader = ({ src, width, quality }: IProps) => {
     return `https://${process.env.NEXT_PUBLIC_CDN}/${src}`
 }
 
+const parseUrl = (src: string): string => {
+    return `https://${process.env.NEXT_PUBLIC_CDN}/${src}`
+}
+
 function MImage(props: any) {
     let src = loader({ src: props.src })
     let { src: s, ...p } = props
@@ -23,5 +27,5 @@ function NImage(props: JSX.IntrinsicAttributes & ImageProps) {
 }
 
 export default NImage
-export { MImage }
+export { MImage, parseUrl }
 export type { IProps }
