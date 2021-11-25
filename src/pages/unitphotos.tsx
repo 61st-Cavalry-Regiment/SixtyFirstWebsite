@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-css-tags */
 import Head from 'next/head'
 import { parseUrl } from '../components/Image'
 import Image from 'next/image'
