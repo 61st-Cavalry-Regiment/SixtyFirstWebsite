@@ -1,12 +1,13 @@
 import MImage, { parseUrl } from './Image'
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useUser } from '@auth0/nextjs-auth0'
 import { Button } from './Button'
+import { Auth } from '@supabase/ui'
+import { supabase } from '../utils/supabaseClient'
 
 interface INav {
     name: string
@@ -26,10 +27,7 @@ function classNames(...classes: string[]) {
 interface UserProps {}
 
 function User(props: UserProps) {
-    const { user, error, isLoading } = useUser()
-    if (isLoading) return <div>Loading</div>
-    if (error) return <div>{error.message}</div>
-
+    const { user } = Auth.useUser()
     if (user) {
         console.log(user)
         return (
@@ -41,7 +39,7 @@ function User(props: UserProps) {
                                 <span className="sr-only">Open user menu</span>
                                 <Image
                                     className="h-8 w-8 rounded-full"
-                                    src={user.picture || ''}
+                                    src={user.user_metadata['avatar_url'] || ''}
                                     width={32}
                                     height={32}
                                     alt=""
@@ -64,16 +62,18 @@ function User(props: UserProps) {
                             >
                                 <Menu.Item>
                                     {({ active }) => (
-                                        <Link href="/api/auth/logout">
-                                            <a
-                                                className={classNames(
-                                                    active ? 'bg-gray-100' : '',
-                                                    'block px-4 py-2 text-sm text-gray-700'
-                                                )}
-                                            >
-                                                Sign out
-                                            </a>
-                                        </Link>
+                                        <button
+                                            onClick={(e) => {
+                                                e.preventDefault()
+                                                supabase.auth.signOut()
+                                            }}
+                                            className={classNames(
+                                                active ? 'bg-gray-100' : '',
+                                                'block px-4 py-2 text-sm text-gray-700'
+                                            )}
+                                        >
+                                            Sign out
+                                        </button>
                                     )}
                                 </Menu.Item>
                             </Menu.Items>
@@ -84,7 +84,7 @@ function User(props: UserProps) {
         )
     } else {
         return (
-            <Link href="/api/auth/login">
+            <Link href="/login">
                 <a className="text-white">
                     <Button>Login</Button>
                 </a>

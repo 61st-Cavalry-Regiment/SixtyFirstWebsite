@@ -1,14 +1,15 @@
 import '../../styles/globals.css'
 import type { AppProps } from 'next/app'
 import TopBar from '../components/TopBar'
-import { UserProvider } from '@auth0/nextjs-auth0'
+import { Auth } from '@supabase/ui'
+import { supabase } from '../utils/supabaseClient'
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <UserProvider>
+        <Auth.UserContextProvider supabaseClient={supabase}>
             <TopBar></TopBar>
             <Component {...pageProps} />
-        </UserProvider>
+        </Auth.UserContextProvider>
     )
 }
 export default MyApp

@@ -21,7 +21,7 @@ export default function Home() {
                 deleniti quibusdam pariatur impedit culpa, illum aliquam fugiat,
                 maiores voluptatem quia.
             </p>
-            <h2>Featured Photos</h2>
+            <h2 className="pb-2">Featured Photos</h2>
             <div className="grid grid-rows-2 xl:grid-rows-1 grid-cols-1 xl:grid-cols-2 gap-2">
                 <div>
                     <Image
