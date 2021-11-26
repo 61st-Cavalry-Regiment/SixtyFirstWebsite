@@ -8,6 +8,7 @@ import Image from 'next/image'
 import { Button } from './Button'
 import { Auth } from '@supabase/ui'
 import { supabase } from '../utils/supabaseClient'
+var md5 = require('md5')
 
 interface INav {
     name: string
@@ -39,7 +40,12 @@ function User(props: UserProps) {
                                 <span className="sr-only">Open user menu</span>
                                 <Image
                                     className="h-8 w-8 rounded-full"
-                                    src={user.user_metadata['avatar_url'] || ''}
+                                    src={
+                                        user.user_metadata['avatar_url'] ||
+                                        `https://www.gravatar.com/avatar/${md5(
+                                            user.email
+                                        )}`
+                                    }
                                     width={32}
                                     height={32}
                                     alt=""
@@ -124,7 +130,12 @@ export default function TopBar() {
                                 <div className="flex-shrink-0 flex items-center relative left-0 top-0 w-16 h-16">
                                     <Image
                                         className="block h-16 w-auto"
-                                        src={parseUrl('61st.png')}
+                                        src={
+                                            supabase.storage
+                                                .from('imgs')
+                                                .getPublicUrl('61st.png')
+                                                .publicURL ?? ''
+                                        }
                                         layout="fill"
                                         objectFit="contain"
                                         alt="Logo"

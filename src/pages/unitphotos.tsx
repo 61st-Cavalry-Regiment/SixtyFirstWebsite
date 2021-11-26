@@ -2,13 +2,14 @@
 import Head from 'next/head'
 import { parseUrl } from '../components/Image'
 import Image from 'next/image'
+import { supabase } from '../utils/supabaseClient'
 
 const PHOTOS = [
-    'unit-photos/img_1.jpg',
-    'unit-photos/img_2.jpg',
-    'unit-photos/img_3.jpg',
-    'unit-photos/img_4.jpg',
-    'unit-photos/img_5.jpg',
+    'up/img_1.jpg',
+    'up/img_2.jpg',
+    'up/img_3.jpg',
+    'up/img_4.jpg',
+    'up/img_5.jpg',
 ]
 
 function UnitPhotos() {
@@ -32,9 +33,13 @@ function UnitPhotos() {
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                         <Image
-                            src={parseUrl(PHOTOS[0])}
+                            src={
+                                supabase.storage
+                                    .from('photos')
+                                    .getPublicUrl(PHOTOS[0]).publicURL ?? ''
+                            }
                             className="block w-full"
-                            alt="..."
+                            alt={PHOTOS[0]}
                             width={2000}
                             height={1128}
                         />
@@ -42,9 +47,13 @@ function UnitPhotos() {
                     {PHOTOS.slice(1).map((photo) => (
                         <div key={photo} className="carousel-item">
                             <Image
-                                src={parseUrl(photo)}
+                                src={
+                                    supabase.storage
+                                        .from('photos')
+                                        .getPublicUrl(photo).publicURL ?? ''
+                                }
                                 className="block w-full"
-                                alt="..."
+                                alt={photo}
                                 width={2000}
                                 height={1128}
                             />

@@ -2,6 +2,7 @@ import Image from 'next/image'
 import TSIcon from '../../public/ts_stacked_bluelight.png'
 import DiscordIcon from '../../public/Discord-Logo-Color.svg'
 import { parseUrl } from '../components/Image'
+import { supabase } from '../utils/supabaseClient'
 
 function Recruitment() {
     return (
@@ -31,7 +32,7 @@ function Recruitment() {
                     Final Test that will cover all aspects of what our unit
                     expects of our members. Anyone who comes in wanting to take
                     part in a teamwork-oriented experience will succeed in BCT
-                    and in the unit as a whole.{' '}
+                    and in the unit as a whole.
                 </p>
             </div>
             <div>
@@ -39,12 +40,16 @@ function Recruitment() {
                 <p>
                     To provide the fullest Arma 3 experience, the 61st maintains
                     additional support detachments to work hand-in-hand with the
-                    main infantry element.{' '}
+                    main infantry element.
                 </p>
                 <div className="grid lg:mx-28 mx-12 grid-cols-1 lg:grid-cols-3 grid-rows-3 lg:grid-rows-2 gap-4">
                     <div className="hidden lg:block scale-150 my-auto">
                         <Image
-                            src={parseUrl('inf.png')}
+                            src={
+                                supabase.storage
+                                    .from('imgs')
+                                    .getPublicUrl('inf.png').publicURL ?? ''
+                            }
                             width={206}
                             height={106}
                             className="mx-auto"
@@ -53,7 +58,11 @@ function Recruitment() {
                     </div>
                     <div className="hidden lg:block my-auto">
                         <Image
-                            src={parseUrl('air.png')}
+                            src={
+                                supabase.storage
+                                    .from('imgs')
+                                    .getPublicUrl('air.png').publicURL ?? ''
+                            }
                             width={416}
                             height={240}
                             className="mx-auto"
@@ -62,7 +71,11 @@ function Recruitment() {
                     </div>
                     <div className="hidden lg:block my-auto scale-75">
                         <Image
-                            src={parseUrl('med.png')}
+                            src={
+                                supabase.storage
+                                    .from('imgs')
+                                    .getPublicUrl('med.png').publicURL ?? ''
+                            }
                             width={416}
                             height={342}
                             className="mx-auto"
